@@ -4,7 +4,7 @@ import urllib
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image_dataset_from_directory
 import uuid
-import os
+import os, time
 from selenium.webdriver.remote.webelement import WebElement
 from typing import List
 import cv2
@@ -32,7 +32,9 @@ def get_image(container):
     try:
         driver.implicitly_wait(10)
         images:List[WebElement] = container.find_elements_by_xpath('.//img')
+        time.sleep(0.05)
         del images[0]
+        print(len(images))
         if len(images) < 2:
             imname = uuid.uuid4()
             src = images[0].get_attribute('src')
