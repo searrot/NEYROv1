@@ -4,11 +4,12 @@ import urllib
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image_dataset_from_directory
 import uuid
-import os, time
+import os
 from selenium.webdriver.remote.webelement import WebElement
 from typing import List
 import cv2
 import pytesseract 
+import time
 #logging.basicConfig(level=logging.DEBUG)
 
 batch_size = 32
@@ -32,9 +33,9 @@ def get_image(container):
     try:
         driver.implicitly_wait(10)
         images:List[WebElement] = container.find_elements_by_xpath('.//img')
+        print(len(images))
         time.sleep(0.05)
         del images[0]
-        print(len(images))
         if len(images) < 2:
             imname = uuid.uuid4()
             src = images[0].get_attribute('src')
@@ -97,7 +98,7 @@ def check_image():
         res = model.predict(test_dataset)
         for pic in res:
             if not trigger:
-                if pic[1] > 0.5 or pic[5] > 0.5 or pic[11] > 0.5:
+                if pic[1] > 0.5 or pic[4] > 0.5 or pic[8] > 0.5:
                     print('DOUG')
                     #r = requests.get('http://45.137.64.175:2000/ZldaOUMyTlBiU1hFdWpYRkZUbUFFNjdv/SHIB')
                     trigger = True
