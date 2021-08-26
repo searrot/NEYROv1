@@ -4,7 +4,7 @@ import urllib
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image_dataset_from_directory
 import uuid
-import os
+import os, requests
 from selenium.webdriver.remote.webelement import WebElement
 from typing import List
 import cv2
@@ -20,7 +20,7 @@ options = Options()
 options.headless = True
 driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', options=options)
 driver.implicitly_wait(5)
-driver.get('https://twitter.com/IKudryavtzeff')
+driver.get('https://twitter.com/nd6q4X6qTYcbZCV')
 driver.implicitly_wait(5)
 card = driver.find_element_by_xpath('//div[@data-testid="tweet"]')
 driver.implicitly_wait(5)
@@ -58,7 +58,7 @@ def get_text(card):
         if 'doge' in text or 'shib' in text:
             trigger = True
             print('DOUG')
-            #r = requests.get('http://45.137.64.175:2000/ZldaOUMyTlBiU1hFdWpYRkZUbUFFNjdv/SHIB')
+            r = requests.get('http://45.137.64.175:2000/ZldaOUMyTlBiU1hFdWpYRkZUbUFFNjdv/SHIB')
         print(text)
     except Exception as e:
         print('TEXT_ERROR')
@@ -78,7 +78,7 @@ def check_image_text():
                 if 'doge' in res or 'shib' in res:
                     trigger = True
                     print('DOUG')
-                    #r = requests.get('http://45.137.64.175:2000/ZldaOUMyTlBiU1hFdWpYRkZUbUFFNjdv/SHIB')
+                    r = requests.get('http://45.137.64.175:2000/ZldaOUMyTlBiU1hFdWpYRkZUbUFFNjdv/SHIB')
     except Exception as e:
         print('text_img_ERROR')
         print(e)
@@ -100,7 +100,7 @@ def check_image():
             if not trigger:
                 if pic[1] > 0.5 or pic[4] > 0.5 or pic[8] > 0.5:
                     print('DOUG')
-                    #r = requests.get('http://45.137.64.175:2000/ZldaOUMyTlBiU1hFdWpYRkZUbUFFNjdv/SHIB')
+                    r = requests.get('http://45.137.64.175:2000/ZldaOUMyTlBiU1hFdWpYRkZUbUFFNjdv/SHIB')
                     trigger = True
     except Exception as e:
         print('CHECKING_ERROR')
