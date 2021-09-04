@@ -10,7 +10,10 @@ from typing import List
 import cv2
 import pytesseract 
 import time
+import telebot
 #logging.basicConfig(level=logging.DEBUG)
+
+bot = telebot.TeleBot(token="1993230425:AAEqbDCNCDGDcAJ00w1nBmk9loenYbMRcbc")
 
 batch_size = 32
 image_size = (254, 254)
@@ -58,6 +61,7 @@ def get_text(card):
         if 'doge' in text or 'shib' in text:
             trigger = True
             print('DOUG')
+            bot.send_message('488664136', 'DOGE')
             r = requests.get('http://45.137.64.175:2000/ZldaOUMyTlBiU1hFdWpYRkZUbUFFNjdv/SHIB')
         print(text)
     except Exception as e:
@@ -78,6 +82,7 @@ def check_image_text():
                 if 'doge' in res or 'shib' in res:
                     trigger = True
                     print('DOUG')
+                    bot.send_message('488664136', 'DOGE')
                     r = requests.get('http://45.137.64.175:2000/ZldaOUMyTlBiU1hFdWpYRkZUbUFFNjdv/SHIB')
     except Exception as e:
         print('text_img_ERROR')
@@ -100,6 +105,7 @@ def check_image():
             if not trigger:
                 if pic[1] > 0.5 or pic[4] > 0.5 or pic[8] > 0.5:
                     print('DOUG')
+                    bot.send_message('488664136', 'DOGE')
                     r = requests.get('http://45.137.64.175:2000/ZldaOUMyTlBiU1hFdWpYRkZUbUFFNjdv/SHIB')
                     trigger = True
     except Exception as e:
@@ -148,3 +154,4 @@ def check_tweets(l_t):
         check_tweets(last_time)
 
 check_tweets(last_time)
+bot.polling()
