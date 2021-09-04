@@ -35,7 +35,9 @@ trigger = False
 def get_image(container):
     try:
         driver.implicitly_wait(10)
+        time.sleep(0.3)
         images:List[WebElement] = container.find_elements_by_xpath('.//img')
+        time.sleep(0.3)
         driver.implicitly_wait(10)
         print(len(images))
         del images[0]
