@@ -13,7 +13,7 @@ import time
 import telebot
 #logging.basicConfig(level=logging.DEBUG)
 
-bot = telebot.TeleBot(token="1993230425:AAEqbDCNCDGDcAJ00w1nBmk9loenYbMRcbc", parse_mode="html")
+bot = telebot.TeleBot(token="1993230425:AAEqbDCNCDGDcAJ00w1nBmk9loenYbMRcbc")
 
 batch_size = 32
 image_size = (254, 254)
@@ -23,7 +23,7 @@ options = Options()
 options.headless = True
 driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', options=options)
 driver.implicitly_wait(5)
-driver.get('https://twitter.com/nd6q4X6qTYcbZCV')
+driver.get('https://twitter.com/IKudryavtzeff')
 driver.implicitly_wait(5)
 card = driver.find_element_by_xpath('//div[@data-testid="tweet"]')
 driver.implicitly_wait(5)
