@@ -36,8 +36,6 @@ def get_image(container):
     try:
         driver.implicitly_wait(10)
         images:List[WebElement] = container.find_elements_by_xpath('.//img')
-        print(len(images))
-        time.sleep(0.2)
         del images[0]
         if len(images) < 2:
             imname = uuid.uuid4()
