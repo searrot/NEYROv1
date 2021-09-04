@@ -13,7 +13,7 @@ import time
 import telebot
 #logging.basicConfig(level=logging.DEBUG)
 
-bot = telebot.TeleBot(token="1993230425:AAEqbDCNCDGDcAJ00w1nBmk9loenYbMRcbc")
+bot = telebot.TeleBot(token="1993230425:AAEqbDCNCDGDcAJ00w1nBmk9loenYbMRcbc", parse_mode="html")
 
 batch_size = 32
 image_size = (254, 254)
