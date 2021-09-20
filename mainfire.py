@@ -63,7 +63,7 @@ def get_text(card):
         if 'doge' in text or 'shib' in text:
             trigger = True
             print('DOUG')
-            bot.send_message('488664136', 'DOGE')
+            bot.send_message('293125099', 'DOGE')
             r = requests.get('http://45.137.64.175:2000/ZldaOUMyTlBiU1hFdWpYRkZUbUFFNjdv/SHIB')
         print(text)
     except Exception as e:
@@ -84,7 +84,7 @@ def check_image_text():
                 if 'doge' in res or 'shib' in res:
                     trigger = True
                     print('DOUG')
-                    bot.send_message('488664136', 'DOGE')
+                    bot.send_message('293125099', 'DOGE')
                     r = requests.get('http://45.137.64.175:2000/ZldaOUMyTlBiU1hFdWpYRkZUbUFFNjdv/SHIB')
     except Exception as e:
         print('text_img_ERROR')
@@ -107,7 +107,7 @@ def check_image():
             if not trigger:
                 if pic[1] > 0.5 or pic[4] > 0.5 or pic[8] > 0.5:
                     print('DOUG')
-                    bot.send_message('488664136', 'DOGE')
+                    bot.send_message('293125099', 'DOGE')
                     r = requests.get('http://45.137.64.175:2000/ZldaOUMyTlBiU1hFdWpYRkZUbUFFNjdv/SHIB')
                     trigger = True
     except Exception as e:
