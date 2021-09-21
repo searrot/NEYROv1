@@ -23,9 +23,9 @@ options = Options()
 options.headless = True
 driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', options=options)
 driver.implicitly_wait(5)
-driver.get('https://twitter.com/IKudryavtzeff')
+driver.get('https://twitter.com/nd6q4X6qTYcbZCV')
 driver.implicitly_wait(5)
-card = driver.find_element_by_xpath('//div[@data-testid="tweet"]')
+card = driver.find_element_by_xpath('//article[@data-testid="tweet"]')
 driver.implicitly_wait(5)
 time_post = card.find_element_by_xpath('.//time').get_attribute('datetime')
 last_time = time_post
@@ -122,7 +122,7 @@ def check_tweets(l_t):
         global driver
         while True:
             driver.implicitly_wait(10)
-            container:WebElement = driver.find_element_by_xpath('//div[@data-testid="tweet"]')
+            container:WebElement = driver.find_element_by_xpath('//article[@data-testid="tweet"]')
             time_post = container.find_element_by_xpath('.//time').get_attribute('datetime')
 
             if time_post != last_time:
@@ -141,6 +141,7 @@ def check_tweets(l_t):
         print(e)
         print('***************************************************************************************')
         print('Перезагрузка сервера')
+        bot.send_message('293125099', 'Перезагрузка сервера')
         print('***************************************************************************************')
         options = Options()
         options.headless = True
