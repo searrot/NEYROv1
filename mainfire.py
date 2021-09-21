@@ -149,7 +149,7 @@ def check_tweets(l_t):
         driver.implicitly_wait(5)
         driver.get('https://twitter.com/IKudryavtzeff')
         driver.implicitly_wait(5)
-        card = driver.find_element_by_xpath('//div[@data-testid="tweet"]')
+        card = driver.find_element_by_xpath('//article[@data-testid="tweet"]')
         driver.implicitly_wait(5)
         time_post = card.find_element_by_xpath('.//time').get_attribute('datetime')
         last_time = time_post
